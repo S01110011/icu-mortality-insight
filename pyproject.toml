@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icu-mortality-insight"
+version = "0.1.0"
+description = "ICU mortality risk modeling with structured clinical data, metrics and explainability."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Healthtech Portfolio" }]
+dependencies = [
+    "joblib>=1.3",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+explainability = [
+    "shap>=0.45",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
